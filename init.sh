@@ -18,7 +18,8 @@ echo \"$public_key\" > git/.ssh/authorized_keys &&
 chown 1000:1000 -R git/ &&
 chmod 700 git/ &&
 chmod 700 git/.ssh/ &&
-chmod 600 git/.ssh/authorized_keys"
+chmod 600 git/.ssh/authorized_keys &&
+git config --global init.defaultBranch main"
 
 output=$(ssh "$1" -v -t "/bin/sh" "-c" "'$embedded_script'" 2>&1)
 echo $output
